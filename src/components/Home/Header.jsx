@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from 'react-scroll'
-import PrimaryButton from './PrimaryButton'
-import RoundButton from './RoundButton'
-import logo from '../assets/img/logo.svg'
-import os from '../assets/img/os.png'
-import bubbleOne from '../assets/img/bubble-one.svg'
-import bubbleTwo from '../assets/img/bubble-two.svg'
+import PrimaryButton from '../UI/PrimaryButton'
+import RoundButton from '../UI/RoundButton'
+import logo from '../../assets/img/logo.svg'
+import os from '../../assets/img/os.png'
+import bubbleOne from '../../assets/img/bubble-one.svg'
+import bubbleTwo from '../../assets/img/bubble-two.svg'
 
-const Navigation = () => {
+const Header = () => {
   return (
     <div className="Header">
       <div className="Header__wrapper">
@@ -69,4 +69,4 @@ const Navigation = () => {
   )
 }
 
-export default Navigation
+export default Header

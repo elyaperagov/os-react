@@ -1,0 +1,41 @@
+.Components {
+  &__inner {
+    background: #eef0f5;
+    border-radius: 24px;
+    padding: 50px 40px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__desc-item {
+    &.inactive {
+      opacity: 0;
+      visibility: hidden;
+    }
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__bubble {
+    position: absolute;
+    content: '';
+    bottom: -800px;
+    left: -200px;
+    z-index: -1;
+    transform: rotate(-90deg);
+    // height: 543px;
+    // width: 1092px;
+  }
+
+  &__semi-circle {
+    // position: absolute;
+    // content: '';
+    // right: 0;
+    // top: 0;
+  }
+}

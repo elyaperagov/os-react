@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { sendMail } from '../api'
+import { sendMail } from '../../api'
 
 const Contact = () => {
   const nameRef = React.useRef()

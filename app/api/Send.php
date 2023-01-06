@@ -2,7 +2,7 @@
 
 class Send
 {
-  const EMAIL = 'piragof@gmail.com';
+  const EMAIL = 'visionforlife.ru@mail.ru';
   const REQUIRED = ['name', 'email', 'message'];
 
   public static function createMessage($data)
