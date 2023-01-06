@@ -3,7 +3,7 @@
   max-width: 143px;
   min-height: 44px;
 
-  background: #366BAA;
+  background: #366baa;
   border-radius: 100px;
 
   font-weight: 600;
@@ -12,7 +12,45 @@
 
   text-align: center;
   text-transform: uppercase;
-  border: 1px solid #366BAA;
-  color: #FFFFFF;
-  outline: none
+  border: 1px solid #366baa;
+  color: #ffffff;
+  outline: none;
+
+  &--burger {
+    display: none;
+    @media (max-width: 1149px) {
+      min-height: auto;
+      flex-shrink: 0;
+      max-width: none;
+      border: none;
+      background: #ffffff;
+      opacity: 0.8;
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      display: block;
+      padding: 0;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 2px;
+        left: 8px;
+        top: 14px;
+        background-color: #366baa;
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        width: 20px;
+        height: 2px;
+        left: 8px;
+        top: 22px;
+        background-color: #366baa;
+      }
+    }
   }
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-scroll'
 import PrimaryButton from '../UI/PrimaryButton'
 import RoundButton from '../UI/RoundButton'
+import BurgerButton from '../UI/BurgerButton'
 import logo from '../../assets/img/logo.svg'
 import os from '../../assets/img/os.png'
 import bubbleOne from '../../assets/img/bubble-one.svg'
@@ -52,6 +53,7 @@ const Header = () => {
                 </li>
               </ul>
               <PrimaryButton name="Заказать" />
+              <BurgerButton />
             </div>
             <div className="Header__content">
               <RoundButton name="Заказать за 3 215 ₽" />

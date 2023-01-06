@@ -86,13 +86,17 @@ const Components = () => {
       <div className="Container">
         <div className="Components__inner">
           <img className="Components__bubble" src={bubbleThree} alt="" />
-          <h2 className="Components__title">Основные компоненты</h2>
-          <div className="Components__desc">
-            {actualStep.objects.map((item, index) => (
-              <div key={index} className={toggleActiveTexts(index)}>
-                <p>{item.description}</p>
-              </div>
-            ))}
+          <div className="Components__info">
+            <h2 className="Components__title">
+              Основные <p>компоненты</p>
+            </h2>
+            <div className="Components__desc">
+              {actualStep.objects.map((item, index) => (
+                <div key={index} className={toggleActiveTexts(index)}>
+                  <p>{item.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="Components__items">
             {actualStep.objects.map((item, index) => (
@@ -107,7 +111,9 @@ const Components = () => {
               </div>
             ))}
           </div>
-          <img className="Components__semi-circle" src={semiCircle} alt="" />
+          <div className="Components__semi-circle">
+            <img src={semiCircle} alt="" />
+          </div>
         </div>
       </div>
     </section>
