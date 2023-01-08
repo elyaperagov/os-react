@@ -1,11 +1,5 @@
-import React from 'react'
-
-const BurgerButton = ({name}) => {
-   return (
-      <button className="Button Button--burger">
-        {name}
-      </button>
-   )
+const BurgerButton = ({ onClick }) => {
+  return <button onClick={onClick} className="Button Button--burger"></button>
 }
 
 export default BurgerButton

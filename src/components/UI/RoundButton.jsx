@@ -2,7 +2,7 @@ import React from 'react'
 
 const PrimaryButton = ({ name }) => {
   return (
-    <button className="RoundButton">
+    <button className="Button Button--round">
       <p>{name}</p>
     </button>
   )

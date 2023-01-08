@@ -46,14 +46,6 @@ const Components = () => {
     },
   ]
 
-  // const [appState, changeState] = useState({
-  //   activeObject: components[0],
-  // })
-
-  // function toggleActive(index) {
-  //   changeState({ ...appState, activeObject: appState.components[index] })
-  // }
-
   const [actualStep, setActualStep] = useState({
     activeObject: components[0],
     objects: components,
