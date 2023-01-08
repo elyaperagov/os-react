@@ -6,6 +6,7 @@ import icon5 from '../../assets/img/b.svg'
 import bubbleThree from '../../assets/img/bubble-three.svg'
 import semiCircle from '../../assets/img/semi-circle.svg'
 import { useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 
 const Components = () => {
   const components = [
@@ -14,35 +15,35 @@ const Components = () => {
       title: 'ФРАНЦУЗСКОЕ КАЧЕСТВО',
       icon: icon1,
       description:
-        'Кальций помогает снизить потерю минеральной плотности костей у женщин в постменопаузе. Низкая минеральная плотность костной ткани является фактором риска остеопоротических переломов.',
+        'КАЛЬЦИЙ помогает снизить потерю минеральной плотности костей у женщин в постменопаузе. Низкая минеральная плотность костной ткани является фактором риска остеопоротических переломов.',
     },
     {
       id: 2,
       title: 'ИННОВАЦИОННЫЕ ТЕХНОЛОГИИ',
       icon: icon2,
       description:
-        'Криодробление при t −198 C позволяет сохранить максимум полезных веществ в готовом продукте',
+        'ЦИНК помогает поддерживать нормальный химический состав костей, способствует поддержанию нормального уровня тестостерона в крови',
     },
     {
       id: 3,
       title: 'НАТУРАЛЬНЫЕ КОМПОНЕНТЫ',
       icon: icon3,
       description:
-        'Эффективность которых доказана, в том числе клиническими исследованиями',
+      'ВИТАМИН К2 способствует поддержанию нормального состава костей, способствует лечению остеопороза, помогает поддерживать прочность костей в области шейки бедра у женщин в постменопаузе',
     },
     {
       id: 4,
       title: 'VEGAN FRIENDLY',
       icon: icon4,
       description:
-        'В 95% продуктов используются капсулы из растительных материалов.',
+        'ВИТАМИН D3 способствует поддержанию нормального состава костей, способствует нормальному содержанию кальция в сыворотке крови.',
     },
     {
       id: 5,
       title: '0% ВРЕДНЫХ КОМПОНЕНТОВ',
       icon: icon5,
       description:
-        'Не содержат стеаратов, парафинового масла, консервантов, сахара',
+        'ВИТАМИН B6 способствует нормальному метаболизму белка',
     },
   ]
 
@@ -73,15 +74,25 @@ const Components = () => {
       return 'Components__item inactive'
     }
   }
+
+  const isMobile = useMediaQuery({ query: `(max-width: 767px)` })
+
   return (
     <section className="Components">
       <div className="Container">
+        {isMobile && (
+          <h2 className="Components__title">
+            Основные <p>компоненты</p>
+          </h2>
+        )}
         <div className="Components__inner">
           <img className="Components__bubble" src={bubbleThree} alt="" />
           <div className="Components__info">
-            <h2 className="Components__title">
-              Основные <p>компоненты</p>
-            </h2>
+            {!isMobile && (
+              <h2 className="Components__title">
+                Основные <p>компоненты</p>
+              </h2>
+            )}
             <div className="Components__desc">
               {actualStep.objects.map((item, index) => (
                 <div key={index} className={toggleActiveTexts(index)}>
