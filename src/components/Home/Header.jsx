@@ -18,6 +18,9 @@ const Header = () => {
 
   console.log(isMobile)
   if (isMobile) {
+
+
+    
     // setToggle({ isVisible: true })
   }
 
