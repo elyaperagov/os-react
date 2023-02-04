@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Tab = (props) => {
   return (
@@ -11,7 +11,7 @@ const Tab = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tab
+export default Tab;

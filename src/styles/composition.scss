@@ -1,0 +1,38 @@
+.Composition {
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        position: relative;
+
+        &:after {
+            content: '';
+            border-bottom: 1px dotted rgba(35,31,32,.2);
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 5px;
+            z-index: 1;
+            width: 100%;
+        }
+
+        @media (max-width: 767px) {
+            align-items: flex-end;
+        }
+        
+    }
+
+    &__text {
+        background: #EEF0F5;
+        z-index: 2;
+        padding-right: 5px;
+    }
+
+    &__value {
+        background: #EEF0F5;
+        z-index: 2;
+        padding-left: 5px;
+        flex-shrink: 0;
+        font-weight: bold;
+    }
+}

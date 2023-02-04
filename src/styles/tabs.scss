@@ -8,72 +8,128 @@
     &__item {
         width: 100%;
         margin-bottom: 16px;
+        position: relative;
 
         ul {
             margin: 0;
-        }
-        &-desc {
             text-align: left;
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            line-height: 160%;
-            color: #231f20;
-            margin: 0;
-            background: #fff;
-            overflow: hidden;
-            transition: all .5s ease-in-out;
-            max-height: 0;   
-            
-        
-            @media (max-width: 1023px) {
-              margin-left: 0;
-              font-size: 16px;
-              line-height: 160%;
-            }
-        
-            @media (max-width: 767px) {
-              font-size: 14px;
-              line-height: 160%;
-        
-              p {
-                margin: 20px 0;
-              }
-            }
-          }
+            padding: 0 16px;
+        }
 
-          &.active {
-            .Tabs__item-desc {
-                height: auto;  
-                max-height: 300px;   
-                background: #EEF0F5;
-                border-radius: 16px;
-                padding: 40px;
-                margin-top: 16px;
-            }
-          }
-    
-        &-title {
+        .Tabs__item-title,
+        .Tabs__item-info {
             font-weight: 600;
             font-size: 32px;
             line-height: 100%;
             text-transform: uppercase;
             color: #231F20;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
-            padding: 0 40px;
+            padding: 27px 40px;
             width: 100%;
             margin: 0;
-            min-height: 80px;
-    
+            text-decoration: none;
+            width: 100%;
+            margin: 0;
+
             background: #D0DBE5;
             border-radius: 16px;
-    
-            p {
-                margin: 0;
+
+            @media (max-width: 1024px) {
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 100%;
+                padding: 16px;
             }
+
+            @media (max-width: 767px) {
+                padding: 19px;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 100%;
+            }
+
+
+        }
+
+        .Tabs__item-info {
+            display: none;
+        }
+
+        .Tabs__item-title:target~.Tabs__item-info {
+            display: flex;
+            background: #D0DBE5;
+
+        }
+
+        .Tabs__item-title:target {
+            display: none;
+        }
+
+        .Tabs__item-title:before,
+        .Tabs__item-info:before {
+            position: absolute;
+            right: 0;
+            margin-left: 5px;
+            width: 32px;
+            display: inline-block;
+            font-size: 60px;
+            font-weight: 400;
+            color: #231F20;
+            right: 37px;
+        }
+
+        .Tabs__item-title:before {
+            content: "+";
+        }
+
+        .Tabs__item-info:before {
+            content: "-";
+        }
+
+        .Tabs__item-title~div {
+            display: none;
+        }
+
+        .Tabs__item-desc-inner {
+            padding: 40px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 130%;
+            color: #231F20;
+
+            @media (max-width: 1024px) {
+                padding: 16px;
+            }
+        }
+
+        .Tabs__item-composition {
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 130%;
+            margin-bottom: 16px;
+        }
+
+        .Tabs__item-title~.Tabs__item-desc {
+            display: block;
+            max-height: 0px;
+
+            overflow: hidden;
+            background: #EEF0F5;
+            border-radius: 16px;
+            text-align: left;
+        }
+
+        .Tabs__item-title:target~div {
+            display: block;
+        }
+
+        /*Note: must set a max-height if you want css transition effect to work; if set to 'auto' Tabs__item-title will still work, but the div will simply open abruptly without smooth transition.  Set max-height to something large unless the height is definite.*/
+        .Tabs__item-title:target~div.Tabs__item-desc {
+            max-height: 1000px;
+            transition: all 0.5s ease;
+            margin-top: 16px;
         }
     }
 }
-  
