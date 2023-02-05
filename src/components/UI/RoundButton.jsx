@@ -1,8 +1,8 @@
 import React from 'react'
 
-const PrimaryButton = ({ name }) => {
+const PrimaryButton = ({ name, setIsOpen }) => {
   return (
-    <button className="Button Button--round">
+    <button onClick={() => setIsOpen(true)} className="Button Button--round">
       <p>{name}</p>
     </button>
   )

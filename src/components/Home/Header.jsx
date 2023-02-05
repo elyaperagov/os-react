@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-scroll'
-import PrimaryButton from '../UI/PrimaryButton'
-import RoundButton from '../UI/RoundButton'
-import BurgerButton from '../UI/BurgerButton'
-import logo from '../../assets/img/logo.svg'
-import os from '../../assets/img/os.png'
-import bubbleOne from '../../assets/img/bubble-one.svg'
-import bubbleTwo from '../../assets/img/bubble-two.svg'
-import { useMediaQuery } from 'react-responsive'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-scroll";
+import PrimaryButton from "../UI/PrimaryButton";
+import RoundButton from "../UI/RoundButton";
+import BurgerButton from "../UI/BurgerButton";
+import logo from "../../assets/img/logo.svg";
+import os from "../../assets/img/os.png";
+import bubbleOne from "../../assets/img/bubble-one.svg";
+import bubbleTwo from "../../assets/img/bubble-two.svg";
+import { useMediaQuery } from "react-responsive";
+import Modal from "./Modal";
 
 const Header = () => {
-  const [isVisible, setToggle] = useState(false)
+  const [isVisible, setToggle] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   // const [isMobile, toggleMObile] = useState(false)
 
-  const isMobile = useMediaQuery({ query: `(max-width: 1149px)` })
+  const isMobile = useMediaQuery({ query: `(max-width: 1149px)` });
 
-  console.log(isMobile)
+  console.log(isMobile);
   if (isMobile) {
-
-
-    
     // setToggle({ isVisible: true })
   }
 
@@ -57,7 +57,7 @@ const Header = () => {
             <div className="Header__logo">
               <img src={logo} alt="" />
             </div>
-            <ul className={isVisible ? 'active' : ''}>
+            <ul className={isVisible ? "active" : ""}>
               <li>
                 <Link to="header" spy={true} smooth={true}>
                   Преимущества
@@ -84,7 +84,8 @@ const Header = () => {
                 </Link>
               </li>
             </ul>
-            <PrimaryButton name="Заказать" />
+            <PrimaryButton name="Заказать" setIsOpen={setIsOpen} />
+            {isOpen && <Modal setIsOpen={setIsOpen} />}
             <BurgerButton onClick={() => setToggle(!isVisible)} />
           </div>
         </div>
@@ -104,7 +105,7 @@ const Header = () => {
                 <div className="Header__logo">
                   <img src={logo} alt="" />
                 </div>
-                <ul className={isVisible ? 'active' : ''}>
+                <ul className={isVisible ? "active" : ""}>
                   <li>
                     <Link to="header" spy={true} smooth={true}>
                       Преимущества
@@ -131,7 +132,8 @@ const Header = () => {
                     </Link>
                   </li>
                 </ul>
-                <PrimaryButton name="Заказать" />
+                <PrimaryButton name="Заказать" setIsOpen={setIsOpen} />
+                {isOpen && <Modal setIsOpen={setIsOpen} />}
                 <BurgerButton onClick={() => setToggle(!isVisible)} />
               </div>
             )}
@@ -150,7 +152,7 @@ const Header = () => {
                   суставов.
                 </p>
               </div>
-              <RoundButton name="Заказать за 3 215 ₽" />
+              <RoundButton setIsOpen={setIsOpen} name="Заказать за 3 215 ₽" />
               <div className="Header__image">
                 <img src={os} alt="" />
               </div>
@@ -159,7 +161,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
