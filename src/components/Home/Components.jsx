@@ -3,7 +3,7 @@ import icon2 from '../../assets/img/zn.svg'
 import icon3 from '../../assets/img/k2.svg'
 import icon4 from '../../assets/img/d3.svg'
 import icon5 from '../../assets/img/b.svg'
-import bubbleThree from '../../assets/img/bubble-three.svg'
+import bubbleFive from '../../assets/img/bubble-five.svg'
 import semiCircle from '../../assets/img/semi-circle.svg'
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
@@ -86,7 +86,7 @@ const Components = () => {
           </h2>
         )}
         <div className="Components__inner">
-          <img className="Components__bubble" src={bubbleThree} alt="" />
+          <img className="Components__bubble" src={bubbleFive} alt="" />
           <div className="Components__info">
             {!isMobile && (
               <h2 className="Components__title">

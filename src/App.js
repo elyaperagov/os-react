@@ -6,6 +6,7 @@ import Tabs from "./components/Home/Tabs.jsx";
 import About from "./components/Home/About.jsx";
 import "./styles/index.scss";
 import Products from "./components/Home/Products";
+import Registration from "./components/Home/Registration";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Tabs />  
       <About /> 
       <Products />  
+      <Registration />  
     </div>
   );
 }

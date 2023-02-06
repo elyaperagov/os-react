@@ -141,9 +141,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 356px;
         text-decoration: none;
-        min-width: 305px;
         height: auto!important;
 
         @media (max-width: 767px) {
@@ -151,7 +149,8 @@
         }
 
         img {
-            max-width: 265px;
+            max-height: 210px;
+            margin: 0 auto;
 
             @media (max-width: 767px) {
                 max-width: 100%;
@@ -196,13 +195,11 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: all 0.3s;
+            }
 
-                @media (max-width: 767px) {
-                    font-weight: 600;
-                    font-size: 14px;
-                    line-height: 120%;
-                    color: #231F20;
-                }
+            svg {
+                fill: #1C355E;
+                margin-left: 4px;
             }
         }
 
@@ -211,6 +208,13 @@
             span {
                 visibility: visible;
                 opacity: 1;
+                color: #1C355E;
+            }
+
+            svg {
+                visibility: visible;
+                opacity: 1;
+                color: #1C355E;
             }
         }
 
@@ -220,7 +224,7 @@
             line-height: 140%;
             text-align: left;
             color: #231F20;
-            margin: 10px 0;
+            margin: 15px 0 10px;
             min-height: 45px;
 
             @media (max-width: 767px) {
@@ -236,15 +240,29 @@
     &__more {
         display: flex;
         align-items: center;
-        justify-content: right;
         text-decoration: none;
         color: #231F20;
         transition: all 0.3s;
+        width: max-content;
+        margin-left: auto;
 
         @media (max-width: 767px) {
             position: absolute;
             bottom: 0;
             z-index: 2;
+        }
+
+        svg {
+            transition: all 0.3s;
+            fill:#231F20;
+        }
+
+        &:hover {
+            color: #366BAA;
+
+            svg {
+                fill: #366BAA;
+            }
         }
 
         p {
