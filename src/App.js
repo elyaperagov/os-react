@@ -5,6 +5,7 @@ import Components from "./components/Home/Components.jsx";
 import Tabs from "./components/Home/Tabs.jsx";
 import About from "./components/Home/About.jsx";
 import "./styles/index.scss";
+import Products from "./components/Home/Products";
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
       <Advantages />
       <Components />
       <Tabs />  
-      <About />  
+      <About /> 
+      <Products />  
     </div>
   );
 }
