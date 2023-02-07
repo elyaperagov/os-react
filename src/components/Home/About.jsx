@@ -2,9 +2,9 @@ import React from "react";
 import Manufacturing from "../../assets/img/close-up-hands-holding-petri-dish.jpg";
 import AboutPicture from "../../assets/img/about.jpg";
 
-const About = (props) => {
+const About = () => {
   return (
-    <section className="About">
+    <section className="About" id="about">
       <div className="Container">
         <h2>О компании</h2>
         <div className="About__desc">

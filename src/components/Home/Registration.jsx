@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import RoundButton from "../UI/RoundButton";
 import bubbleFour from "../../assets/img/bubble-four.svg";
 import bubbleThree from "../../assets/img/bubble-three.svg";
 
 const Registration = () => {
   return (
-    <div className="Registration">
+    <section className="Registration" id="reg">
       <div className="Registration__wrapper">
         <div className="Container">
           <div className="Registration__inner">
             <img
               className="Registration__bubble-two"
-              width="500"
               src={bubbleThree}
               alt=""
             />
-            <img className="Registration__bubble-one" src={bubbleFour} alt="" />
+            <img className="Registration__bubble-one"  src={bubbleFour} alt="" />
             <div className="Registration__content">
               <h2>
                 Пройдите <b>регистрацию</b>
@@ -39,7 +37,7 @@ const Registration = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

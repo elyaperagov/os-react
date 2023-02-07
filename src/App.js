@@ -7,6 +7,7 @@ import About from "./components/Home/About.jsx";
 import "./styles/index.scss";
 import Products from "./components/Home/Products";
 import Registration from "./components/Home/Registration";
+import Footer from "./components/Home/Footer";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <About /> 
       <Products />  
       <Registration />  
+      <Footer />  
     </div>
   );
 }

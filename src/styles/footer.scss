@@ -1,0 +1,42 @@
+.Footer {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+
+    a {
+        text-decoration: none;
+        transition: all 0.3s;
+        color: inherit;
+
+        &:hover {
+            color: #1C355E;
+        }
+    }
+
+    &__wrapper {
+        background: #EEF0F5;
+        border-radius: 24px;
+        margin: 30px 50px;
+
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 126px;
+    }
+
+    &__socials {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 19px;
+    }
+
+    &__social {
+        img {
+            vertical-align: middle;
+        }
+    }
+}

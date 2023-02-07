@@ -45,7 +45,7 @@ export default function Products() {
   ];
 
   return (
-    <section className="Products">
+    <section className="Products" id="products">
       <div className="Container__inner">
         <h2>Другие продукты</h2>
         <p className="Products__desc">

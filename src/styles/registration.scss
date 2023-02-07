@@ -15,7 +15,6 @@
       @media (max-width: 1023px) {
         border-radius: 16px;
         margin: 15px 40px;
-        max-height: 486px;
       }
   
       @media (max-width: 767px) {
@@ -42,7 +41,7 @@
 
       .Button--round {
         position: relative;
-        margin-top: 40px;
+        margin-top: 16px;
         border: 2px solid #ffffff;
         color: white;
         left: 0;
@@ -94,23 +93,55 @@
   
     &__inner {
       position: relative;
-      padding: 60px 0 35px;
+      padding: 60px 0 60px;
 
       @media (max-width: 1023px) {
-        padding: 50px 0 35px;
+        padding: 50px 0 50px;
       }
     }
     
   
     &__bubble-one {
       position: absolute;
-      right: -500px;
+      right: -200px;
+      top: -265px;
+      width: 710px;
+      height: 891px;
       transform: rotate(40deg);
+      transition: all 0.3s;
+
+      @media (max-width: 1023px) {
+        right: -300px;
+        top: -300px;    
+      }
+
+      @media (max-width: 767px) {
+        width: 252px;
+        height: 316px;
+        right: -100px;
+        top: -70px;
+      }
     }
   
     &__bubble-two {
       position: absolute;
-      left: 0;
+      left: -180px; 
+      bottom: -80px;
+      width: 590px;
+      height: 574px;
+      transition: all 0.3s;
+
+      @media (max-width: 1023px) {
+        left: -300px;
+        bottom: -300px;    
+      }
+
+      @media (max-width: 767px) {
+        width: 330px;
+        height: 330px;
+        left: -80px;
+        bottom: -120px;
+      }
     }
   
     &__content {

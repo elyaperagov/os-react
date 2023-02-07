@@ -78,7 +78,7 @@ const Components = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 767px)` })
 
   return (
-    <section className="Components">
+    <section className="Components" id="components">
       <div className="Container">
         {isMobile && (
           <h2 className="Components__title">

@@ -54,7 +54,7 @@ const advantages = [
 
 const Advantages = () => {
   return (
-    <section className="Advantages">
+    <section className="Advantages" id="advantages">
       <div className="Container">
         <h2 className="Advantages__title">Преимущества</h2>
         <div className="Advantages__items">

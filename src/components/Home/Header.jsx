@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-scroll";
 import PrimaryButton from "../UI/PrimaryButton";
 import RoundButton from "../UI/RoundButton";
@@ -54,32 +54,32 @@ const Header = () => {
       {isMobile && (
         <div className="Container">
           <div className="Header__nav">
-            <div className="Header__logo">
+            <a href="/" className="Header__logo">
               <img src={logo} alt="" />
-            </div>
+            </a>
             <ul className={isVisible ? "active" : ""}>
               <li>
-                <Link to="header" spy={true} smooth={true}>
+                <Link to="advantages" spy={true} smooth={true}>
                   Преимущества
                 </Link>
               </li>
               <li>
-                <Link to="feathures" spy={true} smooth={true}>
+                <Link to="components" spy={true} smooth={true}>
                   Состав
                 </Link>
               </li>
               <li>
-                <Link to="pricing" spy={true} smooth={true}>
+                <Link to="about" spy={true} smooth={true}>
                   О компании
                 </Link>
               </li>
               <li>
-                <Link to="pricing" spy={true} smooth={true}>
+                <Link to="products" spy={true} smooth={true}>
                   Продукты Project V
                 </Link>
               </li>
               <li>
-                <Link to="pricing" spy={true} smooth={true}>
+                <Link to="reg" spy={true} smooth={true}>
                   Регистрация
                 </Link>
               </li>
@@ -102,32 +102,32 @@ const Header = () => {
             <img className="Header__bubble-one" src={bubbleOne} alt="" />
             {!isMobile && (
               <div className="Header__nav">
-                <div className="Header__logo">
+                <a href="/" className="Header__logo">
                   <img src={logo} alt="" />
-                </div>
+                </a>
                 <ul className={isVisible ? "active" : ""}>
                   <li>
-                    <Link to="header" spy={true} smooth={true}>
+                    <Link to="advantages" spy={true} smooth={true}>
                       Преимущества
                     </Link>
                   </li>
                   <li>
-                    <Link to="feathures" spy={true} smooth={true}>
+                    <Link to="components" spy={true} smooth={true}>
                       Состав
                     </Link>
                   </li>
                   <li>
-                    <Link to="pricing" spy={true} smooth={true}>
+                    <Link to="about" spy={true} smooth={true}>
                       О компании
                     </Link>
                   </li>
                   <li>
-                    <Link to="pricing" spy={true} smooth={true}>
+                    <Link to="products" spy={true} smooth={true}>
                       Продукты Project V
                     </Link>
                   </li>
                   <li>
-                    <Link to="pricing" spy={true} smooth={true}>
+                    <Link to="reg" spy={true} smooth={true}>
                       Регистрация
                     </Link>
                   </li>
