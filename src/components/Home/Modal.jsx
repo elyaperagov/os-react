@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import { sendMail } from "../../api";
 import os from "../../assets/img/os.png";
-import PhoneInput from './PhoneInput'
+import PhoneInput from "./PhoneInput";
+import ModalSuccess from "./ModalSuccess";
 
 const Modal = ({ setIsOpen }) => {
   const nameRef = React.useRef();
   const emailRef = React.useRef();
   const textRef = React.useRef();
   const phoneRef = React.useRef();
-  const priceRef = React.useRef();
 
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(3250);
+
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   function plus() {
     setCount(count + 1);
@@ -28,7 +30,7 @@ const Modal = ({ setIsOpen }) => {
     }
   }
 
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState("");
   const handleInput = ({ target: { value } }) => setPhone(value);
 
   return (
@@ -107,25 +109,40 @@ const Modal = ({ setIsOpen }) => {
           </div>
           <div className="Modal__input">
             <label htmlFor="name"></label>
-            <input id="name" type="text" ref={nameRef} placeholder="Ваше имя" required/>
+            <input
+              id="name"
+              type="text"
+              ref={nameRef}
+              placeholder="Ваше имя"
+              required
+            />
           </div>
           <div className="Modal__input">
             <label htmlFor="email"></label>
-            <input id="email" type="text" ref={emailRef} placeholder="Ваш email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}" required/>
+            <input
+              id="email"
+              type="text"
+              ref={emailRef}
+              placeholder="Ваш email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"
+              required
+            />
           </div>
           <div className="Modal__input">
-            <PhoneInput ref={phoneRef} onChange={handleInput} ></PhoneInput>
+            <PhoneInput ref={phoneRef} onChange={handleInput}></PhoneInput>
           </div>
           <textarea
             className="Modal__textarea"
             id="textarea"
-            placeholder="Дополнительная информация (адрес, пожелания к заказу)" 
+            placeholder="Дополнительная информация (адрес, пожелания к заказу)"
             type="text"
             ref={textRef}
           ></textarea>
           <button className="Modal__submit">Заказать</button>
         </form>
       </div>
+
+      {isSuccessOpen && <ModalSuccess setSuccessIsOpen={setIsSuccessOpen} />}
     </div>
   );
 
@@ -164,9 +181,6 @@ const Modal = ({ setIsOpen }) => {
         error: "",
       },
     };
-    // if (!this.$validate(this.form)) {
-    //   return
-    // }
     // this.preloader = true
 
     const formData = new FormData();
@@ -175,31 +189,34 @@ const Modal = ({ setIsOpen }) => {
         formData.append(key, form[key].value);
       }
     }
-
+    setIsOpen(false);
+    setIsSuccessOpen(true);
     const response = await sendMail(formData);
 
     if (response.status === 200) {
       console.log("success");
+      setIsOpen(false);
       //   this.showMessage()
 
       //   this.$showNotification(this.$notify, {
       //     text: 'Your message was sent successfully, Thanks!',
       //     type: 'success'
-    }
+      // }
 
-    setTimeout(() => {
-      for (const key in form) {
-        if (typeof form[key].value !== "undefined") {
-          form[key].value = "";
-        }
-      }
-    }, 3000);
-    // } else {
-    //   this.$showNotification(this.$notify, {
-    //     text: 'An error occurred. Please try again later.',
-    //     type: 'error'
-    //   })
-    console.log("error");
+      // setTimeout(() => {
+      //   for (const key in form) {
+      //     if (typeof form[key].value !== "undefined") {
+      //       form[key].value = "";
+      //     }
+      //   }
+      // }, 3000);
+    } else {
+      //   this.$showNotification(this.$notify, {
+      //     text: 'An error occurred. Please try again later.',
+      //     type: 'error'
+      // })
+      setIsOpen(false);
+    }
   }
 
   // this.preloader = false

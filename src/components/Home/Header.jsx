@@ -9,6 +9,7 @@ import bubbleOne from "../../assets/img/bubble-one.svg";
 import bubbleTwo from "../../assets/img/bubble-two.svg";
 import { useMediaQuery } from "react-responsive";
 import Modal from "./Modal";
+import ModalSuccess from "./ModalSuccess";
 
 const Header = () => {
   const [isVisible, setToggle] = useState(false);

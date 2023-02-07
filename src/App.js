@@ -20,7 +20,7 @@ function App() {
       <About /> 
       <Products />  
       <Registration />  
-      <Footer />  
+      <Footer />
     </div>
   );
 }
