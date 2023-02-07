@@ -48,6 +48,13 @@
         bottom: 0;
         text-decoration: none;
         position: relative;
+        transition: all 0.3s;
+
+        &:hover {
+          color: #1C355E;
+          background: white;
+          
+        }
 
         p {
           max-width: 120px;

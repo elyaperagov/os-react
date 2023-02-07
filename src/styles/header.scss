@@ -282,6 +282,11 @@
       line-height: 100%;
       text-transform: uppercase;
       color: #231f20;
+      transition: all 0.3s;
+
+      &:hover a {
+        color: #366BAA;
+      }
     }
   }
 }
