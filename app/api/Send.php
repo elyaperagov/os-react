@@ -3,11 +3,11 @@
 class Send
 {
   const EMAIL = 'visionforlife.ru@mail.ru';
-  const REQUIRED = ['name', 'email', 'message', 'price'];
+  const REQUIRED = ['name', 'email', 'phone', 'message', 'price'];
 
   public static function createMessage($data)
   {
-    return "Name: " . htmlspecialchars($data['name']) . "\nE-mail: " . htmlspecialchars($data['email']) . "\nMessage: " . htmlspecialchars($data['message'])  . "\nPrice: " . htmlspecialchars($data['price']);
+    return "Имя: " . htmlspecialchars($data['name']) . "\nE-mail: " . htmlspecialchars($data['email']) . "\Телефон: " . htmlspecialchars($data['phone']) . "\nСообщение: " . htmlspecialchars($data['message'])  . "\nСумма заказа: " . htmlspecialchars($data['price']);
   }
 
   public static function sendMail()
@@ -16,7 +16,7 @@ class Send
 
     $to = self::EMAIL;
     $message = self::createMessage($_POST);
-    $subject = "Новый заказ с osprojectvint.ru";
+    $subject = "Новый заказ с osprojectv.ru";
     $headers = "From: " . self::EMAIL;
 
     mail($to, $subject, $message, $headers);

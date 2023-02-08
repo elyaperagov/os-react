@@ -12,21 +12,40 @@
 }
 
 
-.Modal__container {
+.Modal__wrapper {
+    overflow-x: hidden;
     position: fixed;
     top: 50%;
     left: 50%;
     transform:translate(-50%, -50%);
     z-index: 3;
+    border-radius: 16px;
+    padding-top: 40px;
+
+    @media (max-width: 767px) {
+        width: 100%;
+        padding: 40px 16px 16px 16px;
+    }
+}
+
+.Modal__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 40px;
     max-width: 520px;
     height: auto;
     background: #EEF0F5;
+    max-height: calc(100vh - 80px);
     border-radius: 16px;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: 767px) {
+        max-width: none;
+        padding: 23px;
+    }
 }
 
 .Modal__heading {
@@ -38,6 +57,15 @@
     text-transform: uppercase;
     color: #231F20;
     margin: 0 0 20px 0;
+
+    @media (max-width: 767px) {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 120%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #231F20;
+    }
 }
 
 .Modal__info {
@@ -124,8 +152,13 @@
     height: 15px;
     border: none;
     position: absolute;
-    top: -40px;
+    top: 0;
     right: 15px;
+
+    @media (max-width: 767px) {
+        top: 2px;
+        right: 35px;
+    }
 }
 
 .Modal__form {
@@ -194,6 +227,10 @@
     min-height: 120px;
     padding: 12px 16px;
     font-family: 'Montserrat', sans-serif!important;
+
+    @media (max-width: 767px) {
+        margin-bottom: 15px;
+    }
 
     ::placeholder {
         font-family: 'Montserrat', sans-serif!important;

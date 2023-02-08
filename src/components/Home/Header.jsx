@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import PrimaryButton from "../UI/PrimaryButton";
 import RoundButton from "../UI/RoundButton";
@@ -8,10 +8,8 @@ import os from "../../assets/img/os.png";
 import bubbleOne from "../../assets/img/bubble-one.svg";
 import bubbleTwo from "../../assets/img/bubble-two.svg";
 import { useMediaQuery } from "react-responsive";
-import Modal from "./Modal";
-import ModalSuccess from "./ModalSuccess";
 
-const Header = () => {
+const Header = (props) => {
   const [isVisible, setToggle] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -50,44 +48,87 @@ const Header = () => {
   // }
   // const { width } = useWindowDimensions()
 
+  // Sticky Menu Area
+  useEffect(() => {
+    window.addEventListener("scroll", isSticky);
+    return () => {
+      window.removeEventListener("scroll", isSticky);
+    };
+  });
+
+  /* Method that will fix header after a specific scrollable */
+  const isSticky = (e) => {
+    const header = document.querySelector(".header-section");
+    const scrollTop = window.scrollY;
+    scrollTop >= 250
+      ? header.classList.add("is-sticky")
+      : header.classList.remove("is-sticky");
+  };
+
   return (
     <div className="Header">
       {isMobile && (
         <div className="Container">
-          <div className="Header__nav">
-            <a href="/" className="Header__logo">
-              <img src={logo} alt="" />
-            </a>
-            <ul className={isVisible ? "active" : ""}>
-              <li>
-                <Link to="advantages" spy={true} smooth={true}>
-                  Преимущества
-                </Link>
-              </li>
-              <li>
-                <Link to="components" spy={true} smooth={true}>
-                  Состав
-                </Link>
-              </li>
-              <li>
-                <Link to="about" spy={true} smooth={true}>
-                  О компании
-                </Link>
-              </li>
-              <li>
-                <Link to="products" spy={true} smooth={true}>
-                  Продукты Project V
-                </Link>
-              </li>
-              <li>
-                <Link to="reg" spy={true} smooth={true}>
-                  Регистрация
-                </Link>
-              </li>
-            </ul>
-            <PrimaryButton name="Заказать" setIsOpen={setIsOpen} />
-            {isOpen && <Modal setIsOpen={setIsOpen} />}
-            <BurgerButton onClick={() => setToggle(!isVisible)} />
+          <div className="header-section">
+            <div className="Header__nav">
+              <a href="/" className="Header__logo">
+                <img src={logo} alt="" />
+              </a>
+              <ul className={isVisible ? "active" : ""}>
+                <li>
+                  <Link
+                    to="advantages"
+                    spy={true}
+                    smooth={true}
+                    onClick={() => setToggle(!isVisible)}
+                  >
+                    Преимущества
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="components"
+                    spy={true}
+                    smooth={true}
+                    onClick={() => setToggle(!isVisible)}
+                  >
+                    Состав
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    onClick={() => setToggle(!isVisible)}
+                  >
+                    О компании
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="products"
+                    spy={true}
+                    smooth={true}
+                    onClick={() => setToggle(!isVisible)}
+                  >
+                    Продукты Project V
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="reg"
+                    spy={true}
+                    smooth={true}
+                    onClick={() => setToggle(!isVisible)}
+                  >
+                    Регистрация
+                  </Link>
+                </li>
+              </ul>
+              <PrimaryButton name="Заказать" setIsOpen={props.setIsOpen} />
+              <BurgerButton onClick={() => setToggle(!isVisible)} />
+            </div>
           </div>
         </div>
       )}
@@ -102,40 +143,41 @@ const Header = () => {
             />
             <img className="Header__bubble-one" src={bubbleOne} alt="" />
             {!isMobile && (
-              <div className="Header__nav">
-                <a href="/" className="Header__logo">
-                  <img src={logo} alt="" />
-                </a>
-                <ul className={isVisible ? "active" : ""}>
-                  <li>
-                    <Link to="advantages" spy={true} smooth={true}>
-                      Преимущества
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="components" spy={true} smooth={true}>
-                      Состав
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="about" spy={true} smooth={true}>
-                      О компании
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="products" spy={true} smooth={true}>
-                      Продукты Project V
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="reg" spy={true} smooth={true}>
-                      Регистрация
-                    </Link>
-                  </li>
-                </ul>
-                <PrimaryButton name="Заказать" setIsOpen={setIsOpen} />
-                {isOpen && <Modal setIsOpen={setIsOpen} />}
-                <BurgerButton onClick={() => setToggle(!isVisible)} />
+              <div className="header-section">
+                <div className="Header__nav">
+                  <a href="/" className="Header__logo">
+                    <img src={logo} alt="" />
+                  </a>
+                  <ul className={isVisible ? "active" : ""}>
+                    <li>
+                      <Link to="advantages" spy={true} smooth={true}>
+                        Преимущества
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="components" spy={true} smooth={true}>
+                        Состав
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="about" spy={true} smooth={true}>
+                        О компании
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="products" spy={true} smooth={true}>
+                        Продукты Project V
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="reg" spy={true} smooth={true}>
+                        Регистрация
+                      </Link>
+                    </li>
+                  </ul>
+                  <PrimaryButton name="Заказать" setIsOpen={props.setIsOpen} />
+                  <BurgerButton onClick={() => setToggle(!isVisible)} />
+                </div>
               </div>
             )}
             <div className="Header__content">
@@ -153,7 +195,10 @@ const Header = () => {
                   суставов.
                 </p>
               </div>
-              <RoundButton setIsOpen={setIsOpen} name="Заказать за 3 215 ₽" />
+              <RoundButton
+                setIsOpen={props.setIsOpen}
+                name="Заказать за 3 215 ₽"
+              />
               <div className="Header__image">
                 <img src={os} alt="" />
               </div>

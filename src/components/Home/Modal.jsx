@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { sendMail } from "../../api";
 import os from "../../assets/img/os.png";
 import PhoneInput from "./PhoneInput";
-import ModalSuccess from "./ModalSuccess";
 
-const Modal = ({ setIsOpen }) => {
+const Modal = (props) => {
   const nameRef = React.useRef();
   const emailRef = React.useRef();
   const textRef = React.useRef();
@@ -12,8 +11,6 @@ const Modal = ({ setIsOpen }) => {
 
   const [count, setCount] = useState(1);
   const [price, setPrice] = useState(3250);
-
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   function plus() {
     setCount(count + 1);
@@ -35,46 +32,10 @@ const Modal = ({ setIsOpen }) => {
 
   return (
     <div className="Modal">
-      <div className="Modal__bg" onClick={() => setIsOpen(false)} />
-      <div className="Modal__container">
-        <p className="Modal__heading">Подтверждение заказа</p>
-        <div className="Modal__info">
-          <div className="Modal__info-inner">
-            <img src={os} alt="" />
-            <p className="Modal__info-title">Продукт OS</p>
-            <p className="Modal__info-price">3250 ₽</p>
-          </div>
-
-          <div className="Modal__counter">
-            <button className="Modal__minus" onClick={minus}>
-              <svg
-                width="8"
-                height="3"
-                viewBox="0 0 8 3"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M7.95455 0V2.03409H0V0H7.95455Z" fill="#252525" />
-              </svg>
-            </button>
-            <span>{count}</span>
-            <button className="Modal__plus" onClick={plus}>
-              <svg
-                width="9"
-                height="9"
-                viewBox="0 0 9 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3.00568 8.0457V0.000244141H5.03977V8.0457H3.00568ZM0 5.04002V3.00593H8.04545V5.04002H0Z"
-                  fill="#252525"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <button className="Modal__close" onClick={() => setIsOpen(false)}>
+      <div className="Modal__bg" onClick={() => props.setIsOpen(false)} />
+      <div className="Modal__wrapper">
+        <div className="Modal__container">
+        <button className="Modal__close" onClick={() => props.setIsOpen(false)}>
           <svg
             width="17"
             height="17"
@@ -98,51 +59,87 @@ const Modal = ({ setIsOpen }) => {
             />
           </svg>
         </button>
-        {/* <div className="Modal__content">
+          <p className="Modal__heading">Подтверждение заказа</p>
+          <div className="Modal__info">
+            <div className="Modal__info-inner">
+              <img src={os} alt="" />
+              <p className="Modal__info-title">Продукт OS</p>
+              <p className="Modal__info-price">3250 ₽</p>
+            </div>
+
+            <div className="Modal__counter">
+              <button className="Modal__minus" onClick={minus}>
+                <svg
+                  width="8"
+                  height="3"
+                  viewBox="0 0 8 3"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M7.95455 0V2.03409H0V0H7.95455Z" fill="#252525" />
+                </svg>
+              </button>
+              <span>{count}</span>
+              <button className="Modal__plus" onClick={plus}>
+                <svg
+                  width="9"
+                  height="9"
+                  viewBox="0 0 9 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.00568 8.0457V0.000244141H5.03977V8.0457H3.00568ZM0 5.04002V3.00593H8.04545V5.04002H0Z"
+                    fill="#252525"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          {/* <div className="Modal__content">
           Are you sure you want to delete the item?
         </div> */}
-
-        <form className="Modal__form" onSubmit={onSubmit}>
-          <div className="Modal__price">
-            <p>К оплате</p>
-            <span>{price} ₽</span>
-          </div>
-          <div className="Modal__input">
-            <label htmlFor="name"></label>
-            <input
-              id="name"
+          <form className="Modal__form" onSubmit={onSubmit}>
+            <div className="Modal__price">
+              <p>К оплате</p>
+              <span>{price} ₽</span>
+            </div>
+            <div className="Modal__input">
+              <label htmlFor="name"></label>
+              <input
+                id="name"
+                type="text"
+                ref={nameRef}
+                placeholder="Ваше имя"
+                required
+              />
+            </div>
+            <div className="Modal__input">
+              <label htmlFor="email"></label>
+              <input
+                id="email"
+                type="text"
+                ref={emailRef}
+                placeholder="Ваш email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"
+                required
+              />
+            </div>
+            <div className="Modal__input">
+              <PhoneInput ref={phoneRef} onChange={handleInput}></PhoneInput>
+            </div>
+            <textarea
+              className="Modal__textarea"
+              id="textarea"
+              placeholder="Дополнительная информация (адрес, пожелания к заказу)"
               type="text"
-              ref={nameRef}
-              placeholder="Ваше имя"
-              required
-            />
-          </div>
-          <div className="Modal__input">
-            <label htmlFor="email"></label>
-            <input
-              id="email"
-              type="text"
-              ref={emailRef}
-              placeholder="Ваш email"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"
-              required
-            />
-          </div>
-          <div className="Modal__input">
-            <PhoneInput ref={phoneRef} onChange={handleInput}></PhoneInput>
-          </div>
-          <textarea
-            className="Modal__textarea"
-            id="textarea"
-            placeholder="Дополнительная информация (адрес, пожелания к заказу)"
-            type="text"
-            ref={textRef}
-          ></textarea>
-          <button className="Modal__submit">Заказать</button>
-        </form>
+              ref={textRef}
+            ></textarea>
+            <button className="Modal__submit">Заказать</button>
+          </form>
+        </div>
       </div>
-
-      {isSuccessOpen && <ModalSuccess setSuccessIsOpen={setIsSuccessOpen} />}
     </div>
   );
 
@@ -181,7 +178,6 @@ const Modal = ({ setIsOpen }) => {
         error: "",
       },
     };
-    // this.preloader = true
 
     const formData = new FormData();
     for (const key in form) {
@@ -189,39 +185,20 @@ const Modal = ({ setIsOpen }) => {
         formData.append(key, form[key].value);
       }
     }
-    setIsOpen(false);
-    setIsSuccessOpen(true);
+
     const response = await sendMail(formData);
 
     if (response.status === 200) {
+      props.toggleModals();
       console.log("success");
-      setIsOpen(false);
-      //   this.showMessage()
-
-      //   this.$showNotification(this.$notify, {
-      //     text: 'Your message was sent successfully, Thanks!',
-      //     type: 'success'
-      // }
-
-      // setTimeout(() => {
-      //   for (const key in form) {
-      //     if (typeof form[key].value !== "undefined") {
-      //       form[key].value = "";
-      //     }
-      //   }
-      // }, 3000);
     } else {
       //   this.$showNotification(this.$notify, {
       //     text: 'An error occurred. Please try again later.',
       //     type: 'error'
       // })
-      setIsOpen(false);
+      console.log("error");
     }
   }
-
-  // this.preloader = false
-
-  // };
 };
 
 export default Modal;
