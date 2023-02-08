@@ -1,9 +1,6 @@
 .Header {
   width: 100%;
-
-  @media (max-width: 1149px) {
-    margin-top: 16px;
-  }
+  overflow: hidden;
 
   &__wrapper {
     overflow: hidden;
@@ -126,11 +123,44 @@
     position: absolute;
     right: -500px;
     transform: rotate(40deg);
+    top: -200px;
+    transition: all 0.3s;
+
+    @media (max-width: 1023px) {
+      width: 632.58px;
+      height: 793.03px;
+      right: -100px;
+      transform: rotate(40deg);
+      top: -50px;
+    }
+
+    @media (max-width: 767px) {
+      width: 280.01px;
+      height: 351.03px;
+      right: -50px;
+      top: 250px;
+    }
   }
 
   &__bubble-two {
     position: absolute;
-    left: 0;
+    position: absolute;
+    left: -100px;
+    top: -150px;
+    transition: all 0.3s;
+
+    @media (max-width: 1023px) {
+      width: 484px;
+      height: 512px;
+      top: -300px;
+    }
+
+    @media (max-width: 767px) {
+      width: 312px;
+      height: 329px;
+      top: -100px;
+      left: -130px;
+    }
   }
 
   &__content {
@@ -249,7 +279,7 @@
       flex-direction: column;
       align-items: flex-end;
       width: 100%;
-      background-color: #fff;
+      background-color: #f5f5f5;
       position: fixed;
       top: 84px;
       left: 0;
@@ -259,6 +289,10 @@
       max-width: none;
       padding: 26px 60px 26px;
       margin: 0;
+
+      @media (max-width: 767px) {
+        padding: 26px 16px 26px;
+      }
 
       li {
         padding: 0 0 24px 0;
@@ -292,15 +326,76 @@
 }
 
 
+.header-section {
+  transition: background-color 0.6s;
+  padding: 0;
+  position: relative;
+  z-index: 3;
+  animation: 200ms ease-in-out 0s normal none 1 running fadeInDown;
+  
+  @media (max-width: 1149px) {
+    background-color: #f5f5f5 !important;
+    margin-left: -50px;
+    margin-right: -50px;
+    padding: 16px 60px 0;
+  }
+
+  @media (max-width: 767px) {
+    padding: 16px 50px;
+  }
+}
+
 .is-sticky {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 3;
   box-shadow: 0 2px 24px 0 rgb(0 0 0 / 15%);
-  background-color: #ffffff !important;
-  animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+  background-color: #f5f5f5 !important;
+  animation: 200ms ease-in-out 0s normal none 1 running fadeInDown;
   padding-top: 0px;
   padding-bottom: 0px;
+  padding: 0 90px;
+
+  @media (max-width: 1149px) {
+    padding: 16px 50px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @media (max-width: 767px) {
+    padding: 16px;
+  }
+
+  .Header__nav {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    @media (max-width: 1149px) {
+      padding: 18px;
+    }
+  
+
+    @media (max-width: 767px) {
+      padding: 18px;
+    }
+  }
+}
+
+.Header__bg{
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  background: #000000;
+  opacity: 0.7;
+  z-index: 3;
 }

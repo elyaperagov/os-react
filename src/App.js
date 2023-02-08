@@ -10,34 +10,49 @@ import Registration from "./components/Home/Registration";
 import Footer from "./components/Home/Footer";
 import Modal from "./components/Home/Modal";
 import ModalSuccess from "./components/Home/ModalSuccess";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function App() {
-
   const [isOpen, setIsOpen] = useState(false);
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false)
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   function toggleModals() {
-    setIsOpen(false)
-    setIsSuccessOpen(true)
+    setIsOpen(false);
+    setIsSuccessOpen(true);
   }
 
   function closeSuccess() {
-    setIsSuccessOpen(false)
+    setIsSuccessOpen(false);
   }
-  
+
+  const escFunction = useCallback((event) => {
+    if (event.key === "Escape" && isOpen) {
+      setIsOpen(false);
+    } else if (event.key === "Escape" && isSuccessOpen) {
+      setIsSuccessOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, [escFunction]);
+
   return (
     <div className="App">
       <Header setIsOpen={setIsOpen} />
       <Advantages />
       <Components />
-      <Tabs />  
-      <About /> 
-      <Products />  
-      <Registration />  
+      <Tabs />
+      <About />
+      <Products />
+      <Registration />
       <Footer />
       {isOpen && <Modal setIsOpen={setIsOpen} toggleModals={toggleModals} />}
-      {isSuccessOpen && <ModalSuccess closeSuccess={closeSuccess} />}
+      {isSuccessOpen && <ModalSuccess setIsSuccessOpen={setIsSuccessOpen} />}
     </div>
   );
 }

@@ -48,7 +48,7 @@ const Header = (props) => {
   // }
   // const { width } = useWindowDimensions()
 
-  // Sticky Menu Area
+
   useEffect(() => {
     window.addEventListener("scroll", isSticky);
     return () => {
@@ -56,11 +56,10 @@ const Header = (props) => {
     };
   });
 
-  /* Method that will fix header after a specific scrollable */
   const isSticky = (e) => {
     const header = document.querySelector(".header-section");
     const scrollTop = window.scrollY;
-    scrollTop >= 250
+    scrollTop >= 150
       ? header.classList.add("is-sticky")
       : header.classList.remove("is-sticky");
   };
@@ -69,7 +68,9 @@ const Header = (props) => {
     <div className="Header">
       {isMobile && (
         <div className="Container">
+          <div className={isVisible ? "Header__bg active" : ""} onClick={() => setToggle(!isVisible)} />
           <div className="header-section">
+          
             <div className="Header__nav">
               <a href="/" className="Header__logo">
                 <img src={logo} alt="" />
@@ -197,7 +198,7 @@ const Header = (props) => {
               </div>
               <RoundButton
                 setIsOpen={props.setIsOpen}
-                name="Заказать за 3 215 ₽"
+                name="Заказать за 3 250 ₽"
               />
               <div className="Header__image">
                 <img src={os} alt="" />

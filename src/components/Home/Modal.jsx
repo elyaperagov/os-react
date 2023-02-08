@@ -122,7 +122,7 @@ const Modal = (props) => {
                 type="text"
                 ref={emailRef}
                 placeholder="Ваш email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                 required
               />
             </div>
