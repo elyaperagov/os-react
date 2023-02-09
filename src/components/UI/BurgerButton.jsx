@@ -1,5 +1,5 @@
-const BurgerButton = ({ onClick }) => {
-  return <button onClick={onClick} className="Button Button--burger"></button>
+const BurgerButton = ({ onClick, isVisible }) => {
+  return <button onClick={onClick}  className={isVisible ? "Button Button--burger active" : "Button Button--burger"}></button>
 }
 
 export default BurgerButton

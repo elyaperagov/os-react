@@ -70,7 +70,7 @@ const Header = (props) => {
         <div className="Container">
           <div className={isVisible ? "Header__bg active" : ""} onClick={() => setToggle(!isVisible)} />
           <div className="header-section">
-          
+
             <div className="Header__nav">
               <a href="/" className="Header__logo">
                 <img src={logo} alt="" />
@@ -128,7 +128,7 @@ const Header = (props) => {
                 </li>
               </ul>
               <PrimaryButton name="Заказать" setIsOpen={props.setIsOpen} />
-              <BurgerButton onClick={() => setToggle(!isVisible)} />
+              <BurgerButton isVisible={isVisible} onClick={() => setToggle(!isVisible)} />
             </div>
           </div>
         </div>

@@ -60,16 +60,6 @@
     }
 
     @media (max-width: 1149px) {
-      // font-weight: 600;
-      // font-size: 14px;
-      // line-height: 160%;
-      // text-align: center;
-      // text-transform: uppercase;
-      // width: 134px;
-      // height: 134px;
-
-      // left: 87px;
-      // bottom: 100px;
       left: 14%;
     }
 
@@ -130,6 +120,15 @@
         left: 8px;
         top: 14px;
         background-color: #366baa;
+        transition: all 0.3s;
+      }
+
+      &.active {
+          &:after {
+          top: 17px;
+          background-color: #366baa;
+          transform: rotate(45deg);
+        }
       }
 
       &:before {
@@ -140,6 +139,16 @@
         left: 8px;
         top: 22px;
         background-color: #366baa;
+        transition: all 0.3s;
+      }
+
+        &.active {
+          &:before {
+          top: 17px;
+          background-color: #366baa;
+          transform: rotate(-45deg);
+
+        }
       }
     }
   }

@@ -5,7 +5,7 @@ const ModalSuccess = ({ setIsSuccessOpen }) => {
     <div className="Modal">
       <div className="Modal__bg" onClick={() => setIsSuccessOpen(false)} />
       <div className="Modal__wrapper">
-      <div className="Modal__container">
+      <div className="Modal__container Modal__container--success">
       <button className="Modal__close" onClick={() => setIsSuccessOpen(false)} >
           <svg
             width="17"
@@ -40,7 +40,7 @@ const ModalSuccess = ({ setIsSuccessOpen }) => {
         </div>
       </div>
       </div>
-     
+
     </div>
   );
 };

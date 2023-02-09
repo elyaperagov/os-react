@@ -12,19 +12,36 @@
 }
 
 
-.Modal__wrapper {
+.Modal {
+    padding: 0 20px 40px;
     overflow-x: hidden;
+    overflow-y: overlay;
+    align-items: center;
+    justify-content: center;
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%, -50%);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1200;
+    padding: 0 20px;
+    display: flex;
+
+    @media (max-width: 767px) {
+        padding: 0 15px;
+    }
+}
+
+.Modal__wrapper {
+    display: block;
+    margin: auto;
+    padding: 50px 0;
     z-index: 3;
     border-radius: 16px;
-    padding-top: 40px;
+    max-width: 520px;
 
     @media (max-width: 767px) {
         width: 100%;
-        padding: 40px 16px 16px 16px;
     }
 }
 
@@ -33,18 +50,23 @@
     flex-direction: column;
     align-items: center;
     padding: 40px;
-    max-width: 520px;
-    height: auto;
-    background: #EEF0F5;
-    max-height: calc(100vh - 80px);
     border-radius: 16px;
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0 auto;
+    position: relative;
+    max-width: 700px;
+    background: #FFFFFF;
+    background: #EEF0F5;
 
     @media (max-width: 767px) {
         max-width: none;
         padding: 23px;
+    }
+
+    &--success {
+        padding: 40px 40px 20px 40px;
+
+        @media (max-width: 767px) {
+            padding: 25px 40px 0 40px;
+        }
     }
 }
 
@@ -152,12 +174,12 @@
     height: 15px;
     border: none;
     position: absolute;
-    top: 0;
-    right: 15px;
+    top: -35px;
+    right: 17px;
 
     @media (max-width: 767px) {
-        top: 2px;
-        right: 35px;
+        top: -36px;
+        right: 20px;
     }
 }
 
@@ -219,7 +241,7 @@
     border: none;
     background: #FFFFFF;
     border-radius: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 
     font-weight: 400;
     font-size: 14px;
@@ -259,5 +281,23 @@
 
     &:hover {
         background: #1C355E;
+    }
+}
+
+.Modal__success {
+    .Modal__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 130%;
+        text-align: center;
+        color: #231F20;
+
+        @media (max-width: 767px) {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 130%;
+            margin: 20px 0;
+            text-align: center;
+        }
     }
 }
