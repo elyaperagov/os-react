@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay, Virtual } from "swiper/core";
 import "swiper/swiper-bundle.css";
 import mds from "../../assets/img/mds.png";
-import jnbw from "../../assets/img/jnbw.png";
+import jnb from "../../assets/img/jnb.png";
 import d from "../../assets/img/d.png";
 import p from "../../assets/img/p.png";
 import a from "../../assets/img/a.png";
@@ -15,32 +15,32 @@ export default function Products() {
     {
       picture: mds,
       title: "MDS | Зрелая красота",
-      price: "4250₽",
-      details: "https://visionforlife.net/mds",
+      price: "5400₽",
+      details: "https://badprojectv.ru/mds-projectv",
     },
     {
-      picture: jnbw,
-      title: "JN Smart To Wise | Ум и концентрация",
-      price: "2900₽",
-      details: "https://visionforlife.net/jn-smart-to-wise",
+      picture: jnb,
+      title: "JNB| Королевская осанка",
+      price: "3800₽",
+      details: "https://badprojectv.ru/jnb-projectv",
     },
     {
       picture: p,
       title: "Нутрицевтик P | баланс нервной системы",
-      price: "2750₽",
-      details: "https://visionforlife.net/p-projectv",
+      price: "3300₽",
+      details: "https://badprojectv.ru/p-projectv",
     },
     {
       picture: d,
       title: "Нутрицевтик D | детоксикация организма",
-      price: "2750₽",
-      details: "https://visionforlife.net/d-projectv",
+      price: "3300₽",
+      details: "https://badprojectv.ru/d-projectv",
     },
     {
       picture: a,
       title: "Нутрицевтик A | сила антиоксандантов",
-      price: "2750₽",
-      details: "https://visionforlife.net/a-projectv",
+      price: "3300₽",
+      details: "https://badprojectv.ru/a-projectv",
     },
   ];
 
@@ -54,7 +54,7 @@ export default function Products() {
           сырья премиум-качества и сертифицирована по стандарту GMP.
         </p>
         <a
-          href="https://visionforlife.net/project-v/"
+          href="https://badprojectv.ru/"
           target="_blank"
           className="Products__more"
         >

@@ -152,7 +152,7 @@ const Tabs = () => {
             <div className="Tabs__item-desc">
               <div className="Tabs__item-desc-inner">
                 <a
-                  href="https://projectvint.ru/storage/store/catalog/161/os-ru.pdf?v=1624041185"
+                  href="https://projectvint.ru/storage/store/product/161/os-ru.pdf?v=1624041185"
                   target="_blank"
                 >
                   Сертификат

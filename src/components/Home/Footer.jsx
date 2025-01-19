@@ -14,7 +14,7 @@ const Footer = () => {
             <a href="/" className="Footer__logo Footer__block">
               <img src={logo} alt="" />
             </a>
-            <div className="Footer__block"><p>© 2023 Оздоровительная продукция Vision/Project V</p></div>
+            <div className="Footer__block"><p>© 2025 Оздоровительная продукция Vision/Project V</p></div>
             <a className="Footer__block" href="tel:+79212377815">+7-921-237-78-15</a>
             <div className="Footer__socials Footer__block">
               <div className="Footer__social">

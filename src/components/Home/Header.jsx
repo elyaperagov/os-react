@@ -198,7 +198,7 @@ const Header = (props) => {
               </div>
               <RoundButton
                 setIsOpen={props.setIsOpen}
-                name="Заказать за 3 250 ₽"
+                name="Заказать за 4100 ₽"
               />
               <div className="Header__image">
                 <img src={os} alt="" />

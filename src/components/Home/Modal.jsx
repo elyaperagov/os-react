@@ -10,20 +10,20 @@ const Modal = (props) => {
   const phoneRef = React.useRef();
 
   const [count, setCount] = useState(1);
-  const [price, setPrice] = useState(3250);
+  const [price, setPrice] = useState(4100);
 
   function plus() {
     setCount(count + 1);
-    setPrice(price + 3250);
+    setPrice(price + 4100);
   }
 
   function minus() {
     setCount(count - 1);
-    setPrice(price - 3250);
+    setPrice(price - 4100);
 
-    if (count <= 0 || price <= 3250) {
+    if (count <= 0 || price <= 4100) {
       setCount(1);
-      setPrice(3250);
+      setPrice(4100);
     }
   }
 
@@ -64,7 +64,7 @@ const Modal = (props) => {
             <div className="Modal__info-inner">
               <img src={os} alt="" />
               <p className="Modal__info-title">Продукт OS</p>
-              <p className="Modal__info-price">3250 ₽</p>
+              <p className="Modal__info-price">4100 ₽</p>
             </div>
 
             <div className="Modal__counter">
